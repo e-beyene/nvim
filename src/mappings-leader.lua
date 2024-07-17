@@ -14,6 +14,11 @@ _G.Config.leader_group_clues = {
 		keys = "<Leader>l",
 		desc = "+Lsp",
 	},
+	{
+		mode = "n",
+		keys = "<Leader>v",
+		desc = "+Visits",
+	},
 }
 
 -- Create `<Leader>` mappings
@@ -32,6 +37,7 @@ end
 nmap_leader("fd", "<Cmd>lua MiniFiles.open()<CR>", "Directory")
 nmap_leader("ff", "<Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>", "File directory")
 nmap_leader("fi", "<Cmd>edit $MYVIMRC<CR>", "File directory")
+nmap_leader("fh", "<Cmd>Pick help<CR>", "Help")
 
 -- b is for 'buffer'
 nmap_leader("bd", "<Cmd>lua MiniBufremove.delete()<CR>", "Delete")
@@ -51,5 +57,9 @@ nmap_leader("lk", "<Cmd>lua vim.diagnostic.goto_prev()<CR>", "Prev diagnostic")
 nmap_leader("lR", "<Cmd>lua vim.lsp.buf.references()<CR>", "References")
 nmap_leader("lr", "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename")
 nmap_leader("ls", "<Cmd>lua vim.lsp.buf.definition()<CR>", "Source definition")
-
 xmap_leader("lf", formatting_cmd, "Format selection")
+
+-- v is for 'visits'
+nmap_leader("vl", "<Cmd>lua MiniVisits.add_label()<CR>", "Add label")
+nmap_leader("vL", "<Cmd>lua MiniVisits.remove_label()<CR>", "Remove label")
+nmap_leader("vv", "<Cmd>Pick visit_labels<CR>", "Select label (cwd)")
