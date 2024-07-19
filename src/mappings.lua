@@ -17,7 +17,10 @@ keymap("n", "<space>", "<Cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.query)
 	desc = "jump",
 })
 keymap("v", "p", [["_dP]], { desc = "Keep the yanked text when pasting in visual  mode" })
+keymap("v", "p", [["_dP]], { desc = "Keep the yanked text when pasting in visual  mode" })
 
 -- use 'cl' instead of 's'
 keymap("n", [[s]], [[<Nop>]])
 keymap("x", [[s]], [[<Nop>]])
+
+keymap("n", "z=", ":Pick spellsuggest<cr>", { desc = "Spell suggest" })
