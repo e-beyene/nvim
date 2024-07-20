@@ -5,8 +5,18 @@ local filterout_lua_diagnosing = function(notif_arr)
 	notif_arr = vim.tbl_filter(not_diagnosing, notif_arr)
 	return MiniNotify.default_sort(notif_arr)
 end
-require("mini.notify").setup({
-	content = { sort = filterout_lua_diagnosing },
-	window = { config = { border = "double" } },
+
+local notify = require("mini.notify")
+
+notify.setup({
+	content = {
+		sort = filterout_lua_diagnosing,
+	},
+	window = {
+		config = {
+			border = "rounded",
+		},
+	},
 })
-vim.notify = MiniNotify.make_notify()
+
+vim.notify = notify.make_notify()
