@@ -1,3 +1,4 @@
+local sysname = vim.loop.os_uname().sysname
 vim.g.mapleader = ","
 
 local g = vim.g -- global variables
@@ -6,7 +7,12 @@ local opt = vim.opt -- set options (global/buffer/windows-scoped)
 -- general
 opt.swapfile = false -- don't modify file open in another nvim processs
 opt.iskeyword:append("-") -- treat dash separated words as a word text object
-opt.clipboard = "unnamed"
+
+if sysname ~= "Linux" then
+	opt.clipboard = "unnamed"
+else
+	opt.clipboard = "unnamedplus"
+end
 
 -- completion
 opt.completeopt = "menuone,noinsert,noselect" -- customize completions
