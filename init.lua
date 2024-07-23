@@ -56,6 +56,10 @@ later(function()
 	require("mini.pairs").setup()
 end)
 later(function()
+  require("mini.operators").setup()
+end)
+
+later(function()
   source("plugins/mini/pick.lua")
 end)
 later(function()
@@ -108,7 +112,6 @@ end)
 later(function()
 	source("plugins/mini/surround.lua")
 end)
-
 -- Theme
 now(function()
 	add("folke/tokyonight.nvim")
