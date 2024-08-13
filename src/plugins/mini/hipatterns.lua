@@ -3,6 +3,7 @@ local hipatterns = require("mini.hipatterns")
 hipatterns.setup({
 	highlighters = {
 		fixme = { pattern = "FIXME", group = "MiniHipatternsFixme" },
+		bug = { pattern = "BUG", group = "MiniHipatternsFixme" },
 		check = { pattern = "CHECK", group = "MiniHipatternsHack" },
 		hack = { pattern = "HACK", group = "MiniHipatternsHack" },
 		todo = { pattern = "TODO", group = "MiniHipatternsTodo" },
