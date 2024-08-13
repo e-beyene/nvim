@@ -86,7 +86,7 @@ end)
 
 later(function()
 	add({ source = "JoosepAlviste/nvim-ts-context-commentstring" })
-	source("plugins/mini/comment.lua")
+	source("plugins/ts-context-commentstring.lua")
 end)
 later(function()
 	source("plugins/mini/basics.lua")
