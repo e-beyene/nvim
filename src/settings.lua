@@ -64,11 +64,35 @@ opt.autoread = true -- auto read files changes
 -- fix markdown indentation settings
 g.markdown_recommended_style = 0
 
-local augroup = vim.api.nvim_create_augroup("CustomSettings", {})
-vim.api.nvim_create_autocmd("FileType", {
+local augroup = vim.api.nvim_create_augroup("CustomSettings", { clear = true })
+local autocmd = vim.api.nvim_create_autocmd
+autocmd("FileType", {
 	group = augroup,
 	callback = function()
 		vim.cmd("setlocal formatoptions-=c formatoptions-=o")
 	end,
 	desc = [[Ensure proper 'formatoptions']],
+})
+
+autocmd("CmdlineEnter", {
+	group = augroup,
+	command = "command! Term :botright split term://$SHELL",
+})
+
+autocmd("TermOpen", {
+	group = augroup,
+	desc = "Enter insert mode when switching to terminal",
+	command = "setlocal listchars= nonumber norelativenumber nocursorline",
+})
+
+autocmd("TermOpen", {
+	group = augroup,
+	pattern = "",
+	command = "startinsert",
+})
+
+autocmd("BufLeave", {
+	group = augroup,
+	pattern = "term://*",
+	command = "stopinsert",
 })
