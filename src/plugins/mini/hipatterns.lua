@@ -1,4 +1,5 @@
 local hipatterns = require("mini.hipatterns")
+local hi_words = MiniExtra.gen_highlighter.words
 
 hipatterns.setup({
 	highlighters = {
