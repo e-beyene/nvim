@@ -166,6 +166,8 @@ later(function()
 	add("tiagovla/scope.nvim")
 	require("scope").setup()
 end)
+
+-- Quickfix
 later(function()
 	add("stevearc/quicker.nvim")
 	require("quicker").setup()
